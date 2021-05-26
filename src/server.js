@@ -1,3 +1,4 @@
+//Importing modules
 const path = require("path");
 const http = require("http");
 const express = require("express");
@@ -9,6 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+//Database and Schema
 require("./conn");
 const Register = require("./models");
 
@@ -19,7 +21,7 @@ const static_path = path.join(__dirname, "../public");
 app.use(express.static(static_path));
 app.set("view engine", "hbs");
 
-//Setting Routes---
+//Routes---
 app.get("/", (req, res) => {
 	res.render("index");
 });
